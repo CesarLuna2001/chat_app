@@ -1,3 +1,4 @@
+import 'package:chat_app/presentation/widgets/chat/my_message_bubble.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -34,7 +35,7 @@ class _ChatView extends StatelessWidget {
               ListView.builder(
                 itemCount: 100,
                 itemBuilder: (context, index) {
-                return Text('Indice: $index');
+                return const MyMessageBubble();
                 },
 
               )
