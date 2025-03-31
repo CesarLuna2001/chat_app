@@ -53,6 +53,7 @@ class _ImageBubble extends StatelessWidget {
             child: const Text("Chat Screen está enviando un mensaje") ,
           );
         },
-      ));
+      )
+    );
   }
 }
