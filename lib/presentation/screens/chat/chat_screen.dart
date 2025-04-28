@@ -1,3 +1,4 @@
+import 'package:chat_app/domain/entities/message.dart';
 import 'package:chat_app/presentation/providers/chat_provider.dart';
 import 'package:chat_app/presentation/widgets/chat/her_message_bubble.dart';
 import 'package:chat_app/presentation/widgets/chat/my_message_bubble.dart';
@@ -43,9 +44,13 @@ class _ChatView extends StatelessWidget {
               ListView.builder(
                 itemCount: chatProvider.messageList.length,
                 itemBuilder: (context, index) {
-                  return (index % 2 == 0)
-                    ? const HerMessageBubble()
-                    : const MyMessageBubble();
+                  //instacia que sabra de quien es el mensaje
+                  final message = chatProvider.messageList[index];
+                  //si es par es mensaje de ella, si no, es mio
+                  //return (index % 2 == 0)
+                  return (message.fromWho == FromWho.hers)
+                    ? HerMessageBubble(message: message)
+                    : MyMessageBubble(message: message);
                 },
 
               )
