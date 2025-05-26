@@ -1,5 +1,6 @@
 import 'package:chat_app/config/helpers/get_yes_no_answer.dart';
 import 'package:chat_app/domain/entities/message.dart';
+import 'package:chat_app/infrastructure/models/yes_no_model.dart';
 import 'package:flutter/material.dart';
 
 class ChatProvider extends ChangeNotifier {
@@ -14,7 +15,7 @@ class ChatProvider extends ChangeNotifier {
     //si el mensaje es vacio no hace nada
     if (text.trim().isEmpty) return;
 
-    final newMessage = Message(text: text.trim(), fromWho: FromWho.me);
+    final newMessage = Message(text: text.trim(), fromWho: FromWho.me, timestamp: DateTime.now(), status: MessageStatus.sent);
     //Agregar el nuevo mensaje a la lista 
     messageList.add(newMessage);
 
